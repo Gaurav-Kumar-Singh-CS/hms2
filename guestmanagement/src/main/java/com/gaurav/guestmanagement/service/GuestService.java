@@ -43,5 +43,10 @@ public class GuestService {
 	public void deleteAllGuests() {
 		guestRepo.deleteAll();
 	}
+	
+	public Guest findByName(String name) {
+		Guest guestByName = guestRepo.findByName(name);
+		return guestByName;
+	}
 
 }

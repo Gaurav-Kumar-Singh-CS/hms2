@@ -62,5 +62,11 @@ public class GuestController {
 		guestService.deleteAllGuests();
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@GetMapping("/search/{name}")
+	public Guest getGuestByName(@PathVariable("name") String name){
+		Guest guest = guestService.findByName(name);
+		return guest;
+	}
 
 }
