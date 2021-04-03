@@ -55,5 +55,12 @@ public class GuestController {
 		guestService.deleteGuest(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	
+	@DeleteMapping("/delete/all")
+	public ResponseEntity<?> deleteAllGuests(){
+		guestService.deleteAllGuests();
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 
 }

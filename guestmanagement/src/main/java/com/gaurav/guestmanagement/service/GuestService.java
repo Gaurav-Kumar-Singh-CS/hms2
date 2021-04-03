@@ -39,5 +39,9 @@ public class GuestService {
 	public void deleteGuest(String id) {
 		guestRepo.deleteById(id);
 	}
+	
+	public void deleteAllGuests() {
+		guestRepo.deleteAll();
+	}
 
 }
