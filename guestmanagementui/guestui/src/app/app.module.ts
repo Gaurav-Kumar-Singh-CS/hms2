@@ -8,6 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { ArtemisComponent } from './artemis/artemis.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { AllUsersComponent } from './all-users/all-users.component';
     FooterComponent,
     RegisterComponent,
     SearchComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    ArtemisComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
