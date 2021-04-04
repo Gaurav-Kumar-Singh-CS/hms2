@@ -1,10 +1,10 @@
 export class Guest{
-        username: string;
+        name: string;
         gender: string;
         email: string;
         phone: string;
     constructor(
-        username: string,
+        name: string,
         gender: string,
         email: string,
         phone: string

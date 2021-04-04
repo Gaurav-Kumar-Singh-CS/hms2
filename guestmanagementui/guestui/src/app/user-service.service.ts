@@ -11,4 +11,8 @@ export class UserServiceService {
   public doRegistration(guest){
     return this.http.post("http://localhost:8080/guest/add", guest, {responseType : "text" as "json"});
   }
+
+  public getGuests(){
+    return this.http.get("http://localhost:8080/guest/all");
+  }
 }

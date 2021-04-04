@@ -23,6 +23,7 @@ public class GuestController {
 	
 	
 	@GetMapping("/all")
+	@CrossOrigin
 	public ResponseEntity<List<Guest>> getAllGuests(){
 		List<Guest> guests = guestService.findAllGuests();
 		return new ResponseEntity<>(guests, HttpStatus.OK);
@@ -37,6 +38,7 @@ public class GuestController {
 
 	
 	@PostMapping("/add")
+	@CrossOrigin
 	public ResponseEntity<Guest> addGuest(@RequestBody Guest guest){
 		Guest newGuest = guestService.addGuest(guest);
 		return new ResponseEntity<>(newGuest, HttpStatus.CREATED);
