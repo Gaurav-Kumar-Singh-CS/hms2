@@ -1,0 +1,36 @@
+footer{  background:#202020;
+    color: white;
+    padding-top:10px;
+    min-height:50px;
+    text-align: center;
+  }
+  .row{
+    padding: 25px;
+  }
+  
+  
+  
+  /* Newsletter */
+  .co{
+    float:left;
+    width: 33%;
+    display: inline;
+  }
+  
+  
+  #newsletter form {
+    margin-top:10px;
+  }
+  
+  #newsletter input[type="email"]{
+    padding:4px;
+    height:15px;
+    width:250px;
+  }
+  
+  #newsletter button[type="submit"]{
+    margin-top:5px;
+    padding:4px;
+    height:25px;
+    width: 100%;
+  }
