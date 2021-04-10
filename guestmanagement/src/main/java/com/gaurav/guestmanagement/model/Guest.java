@@ -1,6 +1,7 @@
 package com.gaurav.guestmanagement.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "guest")
@@ -9,6 +10,8 @@ public class Guest {
 	private String id;
 	private String name;
 	private String gender;
+
+	@Indexed(unique = true)
 	private String email;
 	private String phone;
 	private Address address;
