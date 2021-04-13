@@ -34,13 +34,13 @@ class RoomManagementApplicationTests {
 	@Test
 	public void findAllRoomsTest() {
 		when(repository.findAll()).thenReturn(Stream
-				.of(new Room("a","b","c",1),new Room("e","f","g",1)).collect(Collectors.toList()));
+				.of(new Room("a","b",1,1),new Room("e","f",1,1)).collect(Collectors.toList()));
 		assertEquals(2,service.findAllRooms().size());
 	}
 	
 	@Test
 	public void  addRoomTest() {
-		Room room = new Room("a","b","c",1);
+		Room room = new Room("a","b",1,1);
 		when(repository.save(room)).thenReturn(room);
 		assertEquals(room, service.addRoom(room));
 	}
@@ -48,7 +48,7 @@ class RoomManagementApplicationTests {
 	@Test
 	public void deleteRoomTest() {
 		@SuppressWarnings("unused")
-		Room room = new Room("a","b","c",1);
+		Room room = new Room("a","b",1,1);
 		service.deleteAllRooms();
 		verify(repository, times(1)).deleteAll();
 		
