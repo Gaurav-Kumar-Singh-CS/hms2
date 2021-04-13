@@ -1,6 +1,7 @@
 package com.gaurav.roommanagement.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "room")
@@ -8,13 +9,14 @@ public class Room {
 	
 	@Id
 	public String id;
+	@Indexed(unique = true)
 	public String roomType;
-	public String cost;
+	public int cost;
 	public int totalRooms;
 	
 	public Room() {}
 
-	public Room(String id, String roomType, String cost, int totalRooms) {
+	public Room(String id, String roomType, int cost, int totalRooms) {
 		super();
 		this.id = id;
 		this.roomType = roomType;
@@ -38,11 +40,11 @@ public class Room {
 		this.roomType = roomType;
 	}
 
-	public String getCost() {
+	public int getCost() {
 		return cost;
 	}
 
-	public void setCost(String cost) {
+	public void setCost(int cost) {
 		this.cost = cost;
 	}
 

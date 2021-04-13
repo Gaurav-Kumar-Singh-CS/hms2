@@ -1,5 +1,7 @@
 package com.gaurav.reservationsystem.service;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,35 @@ public class ReservationService {
 	}
 	
 	public Reservation addReservation(Reservation reservation) {
+		
+		int totalPeople = reservation.getNumberOfAdults() + reservation.getNumberofChildren();
+		String dateBeforeString = reservation.getCheckIn();
+		String dateAfterString = reservation.getCheckOut();
+		
+		LocalDate dateBefore = LocalDate.parse(dateBeforeString);
+		LocalDate dateAfter = LocalDate.parse(dateAfterString);
+		
+		long noOfDaysBetween = ChronoUnit.DAYS.between(dateBefore, dateAfter);
+		float totalCostSwitchCase;
+		String roomTypeForSwitchCase = reservation.getRoomType();
+		switch(roomTypeForSwitchCase)
+		{
+		case "SAC":
+		totalCostSwitchCase = totalPeople * 4000 * noOfDaysBetween;
+		break;
+		case "SNAC":
+		totalCostSwitchCase = totalPeople * 3500 * noOfDaysBetween;
+		break;
+		case "DAC":
+		totalCostSwitchCase = totalPeople * 7000 * noOfDaysBetween;
+		break;
+		case "DNAC":
+		totalCostSwitchCase = totalPeople * 6500 * noOfDaysBetween;
+		break;
+		default:
+		totalCostSwitchCase = totalPeople * 4000 * noOfDaysBetween;
+		}
+		reservation.setTotalCost(totalCostSwitchCase);
 		return reservationRepo.save(reservation);
 	}
 	

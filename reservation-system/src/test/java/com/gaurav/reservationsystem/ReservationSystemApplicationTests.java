@@ -1,6 +1,7 @@
 package com.gaurav.reservationsystem;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,13 +35,13 @@ class ReservationSystemApplicationTests {
 	@Test
 	public void findAllReservationsTest() {
 		when(repository.findAll()).thenReturn(Stream
-				.of(new Reservation("a","b"),new Reservation("e","f")).collect(Collectors.toList()));
+				.of(new Reservation("a","b","c"),new Reservation("e","f","g")).collect(Collectors.toList()));
 		assertEquals(2,service.findAllReservations().size());
 	}
 	
 	@Test
 	public void  addReservationTest() {
-		Reservation reservation = new Reservation("a","b");
+		Reservation reservation = new Reservation("a","b","2021-04-10","2021-04-12",1,1,"e",16000);
 		when(repository.save(reservation)).thenReturn(reservation);
 		assertEquals(reservation, service.addReservation(reservation));
 	}
@@ -48,7 +49,7 @@ class ReservationSystemApplicationTests {
 	@Test
 	public void deleteReservationTest() {
 		@SuppressWarnings("unused")
-		Reservation reservation = new Reservation("a","b");
+		Reservation reservation = new Reservation("a","b","c");
 		service.deleteReservation("a");
 		verify(repository, times(1)).deleteById("a");
 		
@@ -57,7 +58,7 @@ class ReservationSystemApplicationTests {
 	@Test
 	public void findReservationByEmailTest() {
 		String email = "b";
-		Reservation reservation = new Reservation("a","b");
+		Reservation reservation = new Reservation("a","b","c");
 		when(repository.findByEmail(email)).thenReturn(reservation);
 		assertEquals(reservation,service.findByEmail(email));
 	}
