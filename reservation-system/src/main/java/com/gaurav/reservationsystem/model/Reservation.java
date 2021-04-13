@@ -18,6 +18,15 @@ public class Reservation {
 	public int numberofChildren;
 	
 	public Reservation() {}
+	
+	
+
+	public Reservation(String id, String email) {
+		super();
+		this.id = id;
+		this.email = email;
+	}
+
 
 	public Reservation(String id, String email, String checkIn, String checkOut, int numberOfAdults, int numberofChildren) {
 		super();

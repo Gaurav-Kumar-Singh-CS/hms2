@@ -25,28 +25,48 @@ public class RoomController {
 	@PostMapping("/add")
 	@CrossOrigin
 	public ResponseEntity<Room> addRoom(@RequestBody Room room){
-		Room newRoom = roomService.addRoom(room);
-		return new ResponseEntity<>(newRoom, HttpStatus.CREATED);
+		try {
+			Room newRoom = roomService.addRoom(room);
+			return new ResponseEntity<>(newRoom, HttpStatus.CREATED);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
 	}
 	
 	@PutMapping("/update")
 	public ResponseEntity<Room> updateGuest(@RequestBody Room room){
+		try {
 		Room updateRoom = roomService.updateRoom(room);
 		return new ResponseEntity<>(updateRoom, HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
 	}
 	
 	
 	@GetMapping("/all")
 	@CrossOrigin
 	public ResponseEntity<List<Room>> getAllRooms(){
+		try {
 		List<Room> rooms = roomService.findAllRooms();
 		return new ResponseEntity<>(rooms, HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
 	}
 	
 	@DeleteMapping("/delete/all")
 	public ResponseEntity<?> deleteAllRooms(){
+		try {
 		roomService.deleteAllRooms();
 		return new ResponseEntity<>(HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
 	}
 	
 

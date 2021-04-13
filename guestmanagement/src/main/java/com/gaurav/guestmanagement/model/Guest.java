@@ -17,8 +17,17 @@ public class Guest {
 	private Address address;
 	
 	public Guest() {}
-
 	
+	
+	public Guest(String id, String name, String gender, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+		this.email = email;
+	}
+
+
 	public Guest(String id, String name, String gender, String email, String phone, Address address) {
 		super();
 		this.id = id;
