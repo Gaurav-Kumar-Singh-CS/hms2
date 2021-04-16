@@ -1,0 +1,53 @@
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
+  
+        <!-- form card login -->
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Register</h3>
+          </div>
+          <div class="card-body">
+            <form class="form">
+                <div class="form-group">
+                    <label for ="username">Username</label>
+                    <input [(ngModel)]="registerUserData.username" type="text"  name="username" class="form-control rounded-0" required>
+                </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input [(ngModel)]="registerUserData.email" type="text"  name="email" class="form-control rounded-0" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input [(ngModel)]="registerUserData.password" type="password"  name="password" class="form-control rounded-0"  required>
+              </div><br>
+              <!--<div class="form-control">
+                <label class="radio-inline">Roles</label><br>
+                
+                    
+            <input [(ngModel)]="registerUserData.roles" type="radio" id="user" name="roles" value="user">
+            <label>Receptionist
+        </label>
+        
+            <input [(ngModel)]="registerUserData.roles" type="radio" id="mod" name="roles" value="mod">
+            <label>Manager
+        </label>
+        
+            <input [(ngModel)]="registerUserData.roles" type="radio" id="admin" name="roles" value="admin">
+            <label>Owner
+        </label>
+            </div>-->
+
+              <button type="button" (click)="registerUser()" class="btn btn-primary float-right">Register</button>
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+  
+      </div>
+  
+  
+    </div>
+  </div>
