@@ -22,22 +22,26 @@
                 <label for="password">Password</label>
                 <input [(ngModel)]="registerUserData.password" type="password"  name="password" class="form-control rounded-0"  required>
               </div><br>
-              <!--<div class="form-control">
-                <label class="radio-inline">Roles</label><br>
+              
+              
+              <div class="form-group">
+                <label >Roles</label><br>
                 
                     
             <input [(ngModel)]="registerUserData.roles" type="radio" id="user" name="roles" value="user">
-            <label>Receptionist
+            <label for="user">Receptionist
         </label>
         
             <input [(ngModel)]="registerUserData.roles" type="radio" id="mod" name="roles" value="mod">
-            <label>Manager
+            <label for ="mod">Manager
         </label>
         
             <input [(ngModel)]="registerUserData.roles" type="radio" id="admin" name="roles" value="admin">
-            <label>Owner
+            <label for = "admin">Owner
         </label>
-            </div>-->
+            </div>
+
+
 
               <button type="button" (click)="registerUser()" class="btn btn-primary float-right">Register</button>
             </form>
