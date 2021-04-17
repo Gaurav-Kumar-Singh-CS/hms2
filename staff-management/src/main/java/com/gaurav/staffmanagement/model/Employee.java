@@ -1,29 +1,45 @@
 package com.gaurav.staffmanagement.model;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "staff")
-public class Guest{
+public class Employee{
+	
 	@Id
 	private String id;
 	private String name;
+	
+	@NotNull(message = "Email cannot be null!")
 	private String email;
 	private String jobTitle;
 	private String phone;
-	private String imageUrl;
-	private String employeeCode;
-	public Guest() {}
-	public Guest(String id, String name, String email, String jobTitle, String phone, String imageUrl,
-			String employeeCode) {
+	private Address address;
+	private int salary;
+	public Employee() {}
+	
+	
+	public Employee(String id, String name, String email, String jobTitle, String phone, Address address, int salary) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.jobTitle = jobTitle;
 		this.phone = phone;
-		this.imageUrl = imageUrl;
-		this.employeeCode = employeeCode;
+		this.address = address;
+		this.salary = salary;
 	}
+
+	public Employee(String id, String email, String jobTitle, String phone) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.jobTitle = jobTitle;
+		this.phone = phone;
+	}
+
+
 	public String getId() {
 		return id;
 	}
@@ -54,21 +70,19 @@ public class Guest{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getImageUrl() {
-		return imageUrl;
+	public Address getAddress() {
+		return address;
 	}
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
-	public String getEmployeeCode() {
-		return employeeCode;
+	public int getSalary() {
+		return salary;
 	}
-	public void setEmployeeCode(String employeeCode) {
-		this.employeeCode = employeeCode;
+	public void setSalary(int salary) {
+		this.salary = salary;
 	}
 	
-	public String toString() {
-		return "Employee{"+id+"wahahahah";
-	}
+	
 	
 }
