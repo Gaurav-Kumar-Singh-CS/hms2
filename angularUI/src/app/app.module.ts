@@ -19,6 +19,9 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { StaffService } from './staff.service';
+import { FourofourComponent } from './fourofour/fourofour.component';
+import { FourothreeComponent } from './fourothree/fourothree.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { MaterialModule } from './material/material.module';
     GuestComponent,
     InventoryComponent,
     StaffComponent,
-    ReservationComponent
+    ReservationComponent,
+    FourofourComponent,
+    FourothreeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,7 @@ import { MaterialModule } from './material/material.module';
     MaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthService, AuthGuard,
+  providers: [AuthService, AuthGuard, StaffService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

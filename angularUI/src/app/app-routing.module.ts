@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArtemisComponent } from './artemis/artemis.component';
 import { AuthGuard } from './auth.guard';
+import { FourofourComponent } from './fourofour/fourofour.component';
+import { FourothreeComponent } from './fourothree/fourothree.component';
 import { GuestComponent } from './guest/guest.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'forbidden',
+    component: FourothreeComponent
+  },
+  {
+    path: 'error',
+    component: FourofourComponent
   },
   {
     path: 'guest',
