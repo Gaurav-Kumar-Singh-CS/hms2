@@ -22,6 +22,11 @@ import { MaterialModule } from './material/material.module';
 import { StaffService } from './staff.service';
 import { FourofourComponent } from './fourofour/fourofour.component';
 import { FourothreeComponent } from './fourothree/fourothree.component';
+import { GuestListComponent } from './guest-list/guest-list.component';
+import { GuestDetailsComponent } from './guest-details/guest-details.component';
+import { CreateGuestComponent } from './create-guest/create-guest.component';
+import { UpdateGuestComponent } from './update-guest/update-guest.component';
+import { GuestService } from './guest.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,11 @@ import { FourothreeComponent } from './fourothree/fourothree.component';
     StaffComponent,
     ReservationComponent,
     FourofourComponent,
-    FourothreeComponent
+    FourothreeComponent,
+    GuestListComponent,
+    GuestDetailsComponent,
+    CreateGuestComponent,
+    UpdateGuestComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,7 @@ import { FourothreeComponent } from './fourothree/fourothree.component';
     MaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthService, AuthGuard, StaffService,
+  providers: [AuthService, AuthGuard, StaffService, GuestService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

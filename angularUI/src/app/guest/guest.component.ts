@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestComponent implements OnInit {
 
+  title = "Guest Management"
   constructor() { }
 
   ngOnInit(): void {
