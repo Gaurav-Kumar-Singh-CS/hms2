@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-artemis-four',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtemisFourComponent implements OnInit {
 
-  constructor() { }
+  loginUserData:any = {}
+  constructor(private _auth: AuthService,
+              private _router: Router) { }
 
   ngOnInit(): void {
+  }
+  
+  loginUser() {
+    this._auth.loginUser(this.loginUserData)
+      .subscribe(
+        res => {
+          console.log(res),
+          localStorage.setItem('token', res.accessToken)
+          this._router.navigate(['/home'])
+        },
+        err => console.log(err)
+      )
   }
 
 }

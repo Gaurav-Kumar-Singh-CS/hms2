@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArtemisFourComponent } from './artemis-four/artemis-four.component';
 import { ArtemisComponent } from './artemis/artemis.component';
 import { AuthGuard } from './auth.guard';
 import { CreateGuestComponent } from './create-guest/create-guest.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    //component: LoginComponent
+    component: ArtemisFourComponent
   },
   {
     path: 'register',
