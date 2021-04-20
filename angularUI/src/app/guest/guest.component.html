@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <ul class = "navbar-nav">
         <li class = "nav-item">
-            <a routerLink="guests" routerLinkActive="active" class="nav-link" >Guests List</a>
+            <a routerLink="/guest/guests" routerLinkActive="active" class="nav-link" >Guests List</a>
         </li>
         <li class = "nav-item">
-            <a routerLink="create-guest" routerLinkActive="active" class="nav-link" >Add Guest</a>
+            <a routerLink="/guest/create-guest" routerLinkActive="active" class="nav-link" >Add Guest</a>
         </li>
     </ul>
 </nav>
 
 <h1 class="text-center"> {{title}} </h1>
 <div class = "container">
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 </div>

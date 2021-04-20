@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateGuestComponent implements OnInit {
 
   id: string;
-  guest: Guest = new Guest();
+  guest: Guest
   constructor(private guestService: GuestService,
     private route: ActivatedRoute,
     private router: Router) { }
@@ -19,19 +19,20 @@ export class UpdateGuestComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
 
-    this.guestService.getGuestById(this.id).subscribe(data => {
+    //this.guest = new Guest();
+    this.guestService.getGuestById(this.id).subscribe( data => {
       this.guest = data;
-    }, error => console.log(error));
+    });
   }
 
-  onSubmit(){
-    this.guestService.updateGuest(this.guest).subscribe( data =>{
+  onSubmit(guest){
+    this.guestService.updateGuest(guest).subscribe( data =>{
       this.goToGuestList();
     }
     , error => console.log(error));
   }
 
   goToGuestList(){
-    this.router.navigate(['/guests']);
+    this.router.navigate(['/guest/guests']);
   }
 }

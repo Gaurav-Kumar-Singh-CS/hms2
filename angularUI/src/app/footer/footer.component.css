@@ -1,0 +1,30 @@
+.footer ul.social-iconsfooter li {
+	display:inline-block;
+	float:none;
+	position:relative;
+	background:transparent;
+	margin-right:5px;
+	border:1px solid #333;
+}
+.footer ul.social-iconsfooter li a {
+	color:#fff;
+	width:60px;
+	height:60px;
+	line-height:60px;
+	display:inline-block;
+}
+.footer {
+	background:#222;
+	color:#999;
+	font-size:14px;
+	padding:60px 0 40px 0;
+	margin-top:0px;
+}
+
+.footernote {
+	font-size:30px;
+	color:#fff;
+}
+.footer a {
+	color:#00bba7;
+}

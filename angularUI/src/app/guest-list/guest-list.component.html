@@ -15,7 +15,7 @@
             <td> {{ guest.email }} </td>
             <td> {{ guest.gender }} </td>
             <td> {{ guest.phone }} </td>
-            <td> {{ guest.city }},  {{ guest.state }},  {{ guest.pin }} </td>
+            <td> {{ guest.address.city }},  {{ guest.address.state }},  {{ guest.address.pin }} </td>
             <td>
                 <button (click) = "updateGuest(guest.id)" class = "btn btn-info"> Update</button>
                 <button (click) = "deleteGuest(guest.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>

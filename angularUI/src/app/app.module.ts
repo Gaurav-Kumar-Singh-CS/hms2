@@ -27,6 +27,10 @@ import { GuestDetailsComponent } from './guest-details/guest-details.component';
 import { CreateGuestComponent } from './create-guest/create-guest.component';
 import { UpdateGuestComponent } from './update-guest/update-guest.component';
 import { GuestService } from './guest.service';
+import { ArtemisOneComponent } from './artemis-one/artemis-one.component';
+import { ArtemisTwoComponent } from './artemis-two/artemis-two.component';
+import { ArtemisThreeComponent } from './artemis-three/artemis-three.component';
+import { ArtemisFourComponent } from './artemis-four/artemis-four.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { GuestService } from './guest.service';
     GuestListComponent,
     GuestDetailsComponent,
     CreateGuestComponent,
-    UpdateGuestComponent
+    UpdateGuestComponent,
+    ArtemisOneComponent,
+    ArtemisTwoComponent,
+    ArtemisThreeComponent,
+    ArtemisFourComponent
   ],
   imports: [
     BrowserModule,

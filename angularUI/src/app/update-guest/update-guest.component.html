@@ -1,12 +1,13 @@
 <div class="col-md-6 offset-md-3">
     <h3> Update Guest </h3>
-    <form (ngSubmit) = "onSubmit()">
+    <form #editForm="ngForm" (ngSubmit) = "onSubmit(editForm.value)" >
     
         <div class="form-group">
             <label> Name </label>
             <input type="text" class ="form-control" id = "name"
                 [(ngModel)] = "guest.name" name = "name">
         </div>
+        <input type="hidden" [(ngModel)] ="guest.id" name="id" class="form-control" id="id" placeholder="ID">
     
         <div class="form-group">
             <label> Email </label>

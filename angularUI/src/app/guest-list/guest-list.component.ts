@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class GuestListComponent implements OnInit {
 
   guests: Guest[];
+  guest: Guest 
 
   constructor(private guestService: GuestService,
     private router: Router) { }
@@ -25,11 +26,11 @@ export class GuestListComponent implements OnInit {
   }
 
   guestDetails(id: string){
-    this.router.navigate(['guest-details', id]);
+    this.router.navigate(['/guest/guest-details', id]);
   }
 
   updateGuest(id: string){
-    this.router.navigate(['update-guest']);
+    this.router.navigate(['/guest/update-guest', id]);
   }
 
   deleteGuest(id: string){

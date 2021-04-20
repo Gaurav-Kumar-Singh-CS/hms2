@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Guest } from '../guest';
 import { GuestService } from '../guest.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create-guest',
@@ -10,15 +11,15 @@ import { Router } from '@angular/router';
 })
 export class CreateGuestComponent implements OnInit {
 
-  guest: Guest = new Guest();
+  guest: Guest
   constructor(private guestService: GuestService,
     private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  saveGuest(){
-    this.guestService.createGuest(this.guest).subscribe( data =>{
+  saveGuest(guest){
+    this.guestService.createGuest(guest).subscribe( data =>{
       console.log(data);
       this.goToGuestList();
     },
@@ -26,11 +27,11 @@ export class CreateGuestComponent implements OnInit {
   }
 
   goToGuestList(){
-    this.router.navigate(['/guests']);
+    this.router.navigate(['/guest/guests']);
   }
   
-  onSubmit(){
-    console.log(this.guest);
-    this.saveGuest();
+  onSubmit(addForm: NgForm){
+    console.log(addForm.value);
+    this.saveGuest(addForm.value);
   }
 }

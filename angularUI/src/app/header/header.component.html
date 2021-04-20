@@ -1,1 +1,34 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg colcol">
+    <!--<a class="navbar-brand mr-5" href="#">Artemis</a>-->
+    <div id="branding">
+      <img src="../../assets/images/logo.png" width=75px height=75px>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse container-fluid" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <h3><a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a></h3>
+        </li>
+        <li class="nav-item">
+          <h3><a class="nav-link" routerLink="/reservation" routerLinkActive="active">Reservations</a></h3>
+        </li>
+        <li class="nav-item">
+          <h3><a class="nav-link" routerLink="/guest" routerLinkActive="active">Guests</a></h3>
+        </li>
+        <li class="nav-item">
+          <h3><a class="nav-link" routerLink="/inventory" routerLinkActive="active">Inventory</a></h3>
+        </li>
+        <li class="nav-item">
+          <h3><a class="nav-link" routerLink="/staff" routerLinkActive="active">Staff</a></h3>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <h3><a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a></h3>
+          <h3><a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a></h3>
+          <h3><a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click) = "_authService.logoutUser()">Logout</a></h3>        
+      </ul>
+    </div>
+  </nav>

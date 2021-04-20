@@ -47,11 +47,6 @@ const routes: Routes = [
     component: FourofourComponent
   },
   {
-    path: 'guest',
-    component: GuestComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'inventory',
     component: InventoryComponent,
     canActivate: [AuthGuard]
@@ -62,25 +57,32 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'guest',
+    component: GuestComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'guests', 
+        component: GuestListComponent
+      },
+      {
+        path: 'create-guest', 
+        component: CreateGuestComponent
+      },
+      {
+        path: 'update-guest/:id', 
+        component: UpdateGuestComponent
+      },
+      {
+        path: 'guest-details/:id', 
+        component: GuestDetailsComponent
+      }
+    ]
+  },
+  {
     path: '**',
     component: ArtemisComponent
   },
-  {
-    path: 'guests', 
-    component: GuestListComponent
-  },
-  {
-    path: 'create-guest', 
-    component: CreateGuestComponent
-  },
-  {
-    path: 'update-guest', 
-    component: UpdateGuestComponent
-  },
-  {
-    path: 'guest-details/:id', 
-    component: GuestDetailsComponent
-  }
 ];
 
 @NgModule({
