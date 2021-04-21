@@ -31,6 +31,7 @@ import { ArtemisOneComponent } from './artemis-one/artemis-one.component';
 import { ArtemisTwoComponent } from './artemis-two/artemis-two.component';
 import { ArtemisThreeComponent } from './artemis-three/artemis-three.component';
 import { ArtemisFourComponent } from './artemis-four/artemis-four.component';
+import { InventoryService } from './inventory.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { ArtemisFourComponent } from './artemis-four/artemis-four.component';
     MaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthService, AuthGuard, StaffService, GuestService,
+  providers: [AuthService, AuthGuard, StaffService, GuestService, InventoryService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

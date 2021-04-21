@@ -23,7 +23,6 @@ public class RoomController {
 	
 	
 	@PostMapping("/add")
-	@CrossOrigin
 	public ResponseEntity<Room> addRoom(@RequestBody Room room){
 		try {
 			Room newRoom = roomService.addRoom(room);
@@ -47,7 +46,6 @@ public class RoomController {
 	
 	
 	@GetMapping("/all")
-	@CrossOrigin
 	public ResponseEntity<List<Room>> getAllRooms(){
 		try {
 		List<Room> rooms = roomService.findAllRooms();
