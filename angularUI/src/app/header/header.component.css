@@ -1,5 +1,5 @@
 .colcol{
-    background-color: #0c0b0b;
+    background-color: #000000;
 }
 
 h3{
@@ -12,4 +12,12 @@ h3{
 
 #navbarSupportedContent{
     padding-top: 12px;
+}
+
+/*.navHeader{
+    color: aqua;
+}*/
+
+.nav-link{
+    color: rgb(19, 19, 243)
 }

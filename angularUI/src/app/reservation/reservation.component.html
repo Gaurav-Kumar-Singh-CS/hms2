@@ -1,1 +1,250 @@
-<p>reservation works!</p>
+<!--
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<br>
+<div class="w3-container">
+
+  <table class="w3-table-all w3-hoverable">
+    <thead>
+      <tr class="w3-dark-grey">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>Adam</td>
+      <td>Johnson</td>
+      <td>67</td>
+    </tr>
+  </table>
+</div>
+
+</body>
+</html> -->
+
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style="color:white;">Reservation System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+     <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+           <a class="nav-link" (click)="onOpenModal(null, 'add')">Book a room <span class="sr-only">(current)</span></a>
+        </li>
+     </ul>
+     <form class="form-inline my-2 my-lg-0">
+        <input type="search" (ngModelChange)="searchReservations(key.value)" #key="ngModel" ngModel
+         name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search reservations..." required>
+     </form>
+  </div>
+</nav><br>
+<div class="container" id="main-container">
+<div class="row">
+  <div *ngFor="let reservation of reservations" class="col-md-6 col-xl-3">
+     <!--<div class="card m-b-30">
+        <div class="card-body row">
+           <div class="col-6">
+              <a href=""><img src="https://image.freepik.com/free-vector/man-profile-cartoon_18591-58482.jpg" alt="" class="img-fluid rounded-circle w-60"></a>
+           </div>
+           <div class="col-6 card-title align-self-center mb-0">
+              <h4>{{reservation?.name}}</h4>
+              <p class="m-0">{{reservation?.jobTitle}}</p>
+           </div>
+        </div>
+        <ul class="list-group list-group-flush">
+           <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{reservation?.email}}</li>
+           <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{reservation?.phone}}</li>
+           <li class="list-group-item"><i class="fa fa-home float-right"></i>Address : {{reservation?.address.city}}, {{reservation?.address.state}}, {{reservation?.address.pin}}</li>
+           <li class="list-group-item"><i class="fa fa-inr float-right"></i>Salary: {{reservation?.salary}}</li>
+        </ul>
+        <div class="card-body">
+           <div class="float-right btn-group btn-group-sm">
+              <a (click)="onOpenModal(reservation, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+              <a (click)="onOpenModal(reservation, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+           </div>
+        </div>
+     </div>-->
+
+     <div class="w3-container">
+
+        <table class="w3-table-all w3-hoverable">
+          <tr>
+            <td>{{reservation?.email}}</td>
+            <td>{{reservation?.checkIn}}</td>
+            <td>{{reservation?.checkout}}</td>
+            <td>{{reservation?.numberOfAdults}}</td>
+            <td>{{reservation?.numberOfChildren}}</td>
+            <td>{{reservation?.roomType}}</td>
+            <td>{{reservation?.totalCost}}</td>
+            <td><a (click)="onOpenModal(reservation, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a></td>
+            <td><a (click)="onOpenModal(reservation, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a></td>
+          </tr>
+        </table>
+      </div>
+
+
+
+
+  </div>
+</div>
+
+<!-- Add Reservation Modal -->
+<div class="modal fade" id="addReservationModal" tabindex="-1" role="dialog" aria-labelledby="addReservationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title" id="addReservationModalLabel">Add Reservation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddReservation(addForm)">
+          <div class="form-group">
+             <label for="email">Email ID</label>
+             <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+             <label for="checkIn">Check In</label>
+             <input type="text" ngModel name="checkIn" class="form-control" id="checkIn" placeholder="Check In" required>
+          </div>
+          <div class="form-group">
+             <label for="checkOut">Check Out</label>
+             <input type="text" ngModel name="checkOut" class="form-control" id="checkOut" placeholder="Check Out" required>
+          </div>
+          <div class="form-group">
+             <label for="numberOfAdults">Adults</label>
+             <input type="number" ngModel name="numberOfAdults" class="form-control" id="numberOfAdults" placeholder="Number of Adults" required>
+          </div>
+          <div class="form-group">
+            <label for="numberOfChildren">Children</label>
+            <input type="number" ngModel name="numberOfChildren" class="form-control" id="numberOfChildren" placeholder="Number of Children" required>
+         </div>
+         <div class="form-group">
+            <label for="roomType">Room Type</label>
+            <!--<input type="number" ngModel name="salary" class="form-control" id="salary" placeholder="Salary" required>-->
+            <select name="roomType" id="roomType" ngModel class="form-control" placeholder="Room Type" required>
+                <option value="" disabled selected>Room Type</option>  
+                <option value="SAC">Single (with AC)</option>
+                <option value="SNAC">Single (without AC)</option>
+                <option value="DAC">Double (with AC)</option>
+                <option value="DNAC">Double (without AC)</option>
+            </select>
+         </div>
+          <div class="modal-footer">
+             <button type="button" id="add-reservation-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Add reservation</button>
+          </div>
+          </form>
+       </div>
+    </div>
+  </div>
+  </div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="updateReservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h4 class="modal-title" id="updateReservationModalLabel">Edit Reservation of {{editReservation?.email}}</h4>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <form #editForm="ngForm">
+              <input type="hidden" ngModel="{{editReservation?.id}}" name="id" class="form-control" id="id" placeholder="ID">
+              <!--<input type="hidden" ngModel="{{editReservation?.salary}}" name="userCode" class="form-control" id="userCode" placeholder="Email">-->
+              <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" ngModel="{{editReservation?.email}}" name="email" class="form-control" id="email" placeholder="Email" required>
+             </div>
+             <div class="form-group">
+                <label for="checkIn">Check In</label>
+                <input type="text" ngModel="{{editReservation?.checkIn}}" name="checkIn" class="form-control" id="checkIn" placeholder="Check In" required>
+             </div>
+             <div class="form-group">
+                <label for="checkOut">Check Out</label>
+                <input type="text" ngModel="{{editReservation?.checkOut}}" name="checkOut" class="form-control" id="checkOut" placeholder="Check Out" required>
+             </div>
+             <div class="form-group">
+                <label for="numberOfAdults">Adults</label>
+                <input type="number" ngModel="{{editReservation?.numberOfAdults}}" name="numberOfAdults" class="form-control" id="numberOfAdults" placeholder="Number of Adults" required>
+             </div>
+             <div class="form-group">
+               <label for="numberOfChildren">Children</label>
+               <input type="number" ngModel="{{editReservation?.numberOfChildren}}" name="numberOfChildren" class="form-control" id="numberOfChildren" placeholder="Number of Children" required>
+            </div>
+            <div class="form-group">
+               <label for="roomType">Room Type</label>
+               <!--<input type="number" ngModel name="salary" class="form-control" id="salary" placeholder="Salary" required>-->
+               <select name="roomType" id="roomType" ngModel="{{editReservation?.roomType}}" class="form-control" placeholder="Room Type" required>
+                   <option value="SAC">Single (with AC)</option>
+                   <option value="SNAC">Single (without AC)</option>
+                   <option value="DAC">Double (with AC)</option>
+                   <option value="DNAC">Double (without AC)</option>
+               </select>
+            </div>
+              
+              
+              <div class="modal-footer">
+                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                 <button (click)="onUpdateReservation(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteReservationModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h4 class="modal-title" id="deleteModelLabel">Delete Reservation</h4>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Are you sure you want to delete reservation of {{deleteReservation?.email}}?</p>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteReservation(deleteReservation?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+
+
+<!-- Notification for no reservations -->
+<div *ngIf="reservations?.length < 1" class="col-lg-12 col-md-12 col-xl-12">
+<div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">NO RESERVATIONS!</h4>
+  <p>No Reservations were found!</p>
+</div>
+</div>
+
+<router-outlet></router-outlet>

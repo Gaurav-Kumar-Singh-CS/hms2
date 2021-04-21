@@ -22,7 +22,6 @@ public class ReservationController {
 	
 	
 	@GetMapping("/all")
-	@CrossOrigin
 	public ResponseEntity<List<Reservation>> getAllReservations(){
 		try {
 		List<Reservation> reservations = reservationService.findAllReservations();
@@ -35,7 +34,6 @@ public class ReservationController {
 
 	
 	@PostMapping("/add")
-	@CrossOrigin
 	public ResponseEntity<Reservation> addReservation(@RequestBody Reservation reservation){
 		try {
 		Reservation newReservation = reservationService.addReservation(reservation);
