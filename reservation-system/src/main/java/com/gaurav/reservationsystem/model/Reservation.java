@@ -21,7 +21,7 @@ public class Reservation {
 	@JsonFormat(pattern = "yyyy-MM-dd", shape = Shape.STRING)
 	public String checkOut;
 	public int numberOfAdults;
-	public int numberofChildren;
+	public int numberOfChildren;
 	@Indexed(unique = true)
 	public String roomType;
 	public float totalCost;
@@ -40,14 +40,14 @@ public class Reservation {
 
 
 	public Reservation(String id, String email, String checkIn, String checkOut, int numberOfAdults,
-			int numberofChildren, String roomType, float totalCost) {
+			int numberOfChildren, String roomType, float totalCost) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.numberOfAdults = numberOfAdults;
-		this.numberofChildren = numberofChildren;
+		this.numberOfChildren = numberOfChildren;
 		this.roomType = roomType;
 		this.totalCost = totalCost;
 	}
@@ -114,14 +114,14 @@ public class Reservation {
 
 
 
-	public int getNumberofChildren() {
-		return numberofChildren;
+	public int getNumberOfChildren() {
+		return numberOfChildren;
 	}
 
 
 
-	public void setNumberofChildren(int numberofChildren) {
-		this.numberofChildren = numberofChildren;
+	public void setNumberOfChildren(int numberOfChildren) {
+		this.numberOfChildren = numberOfChildren;
 	}
 
 

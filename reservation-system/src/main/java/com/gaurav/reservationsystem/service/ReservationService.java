@@ -22,7 +22,7 @@ public class ReservationService {
 	
 	public Reservation addReservation(Reservation reservation) {
 		
-		int totalPeople = reservation.getNumberOfAdults() + reservation.getNumberofChildren();
+		int totalPeople = reservation.getNumberOfAdults() + reservation.getNumberOfChildren();
 		String dateBeforeString = reservation.getCheckIn();
 		String dateAfterString = reservation.getCheckOut();
 		
@@ -58,7 +58,7 @@ public class ReservationService {
 	}
 	
 	public Reservation updateReservation(Reservation reservation) {
-		int totalPeople = reservation.getNumberOfAdults() + reservation.getNumberofChildren();
+		int totalPeople = reservation.getNumberOfAdults() + reservation.getNumberOfChildren();
 		String dateBeforeString = reservation.getCheckIn();
 		String dateAfterString = reservation.getCheckOut();
 		
