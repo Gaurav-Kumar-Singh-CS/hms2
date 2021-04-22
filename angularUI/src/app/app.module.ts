@@ -33,6 +33,7 @@ import { ArtemisThreeComponent } from './artemis-three/artemis-three.component';
 import { ArtemisFourComponent } from './artemis-four/artemis-four.component';
 import { InventoryService } from './inventory.service';
 import { ReservationService } from './reservation.service';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ReservationService } from './reservation.service';
     ArtemisOneComponent,
     ArtemisTwoComponent,
     ArtemisThreeComponent,
-    ArtemisFourComponent
+    ArtemisFourComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

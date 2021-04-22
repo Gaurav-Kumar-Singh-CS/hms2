@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Guest } from '../guest'
 import { GuestService } from '../guest.service'
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-guest-list',
   templateUrl: './guest-list.component.html',
@@ -22,7 +23,14 @@ export class GuestListComponent implements OnInit {
   private getGuests(){
     this.guestService.getGuestsList().subscribe(data => {
       this.guests = data;
-    });
+    },
+    (error: HttpErrorResponse) => {
+      if(error.status === 403) {
+        this.router.navigate(['/forbidden'])
+      } else
+      this.router.navigate(['/error'])
+    }
+    );
   }
 
   guestDetails(id: string){

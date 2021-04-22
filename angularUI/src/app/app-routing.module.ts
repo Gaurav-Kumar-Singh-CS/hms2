@@ -11,6 +11,7 @@ import { GuestListComponent } from './guest-list/guest-list.component';
 import { GuestComponent } from './guest/guest.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
+import { PaymentComponent } from './payment/payment.component';
 import { RegisterComponent } from './register/register.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { StaffComponent } from './staff/staff.component';
@@ -80,6 +81,10 @@ const routes: Routes = [
         component: GuestDetailsComponent
       }
     ]
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent
   },
   {
     path: '**',

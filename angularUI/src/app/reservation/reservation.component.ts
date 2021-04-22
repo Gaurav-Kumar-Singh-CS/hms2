@@ -29,8 +29,8 @@ export class ReservationComponent implements OnInit {
       (error: HttpErrorResponse) => {
         if(error.status === 403) {
           this._router.navigate(['/forbidden'])
-        } /*else
-        this._router.navigate(['/error'])*/
+        } else
+        this._router.navigate(['/error'])
       }
     );
   }
