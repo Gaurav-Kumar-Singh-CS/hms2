@@ -2,16 +2,22 @@ package com.gaurav.reservationsystem.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.gaurav.reservationsystem.config.MessagingConfig;
 import com.gaurav.reservationsystem.model.Reservation;
 import com.gaurav.reservationsystem.service.ReservationService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
 @RestController
 @RequestMapping("/reservation")
 public class ReservationController {
+	@Autowired
+    private RabbitTemplate template;
+	
 	private final ReservationService reservationService;
 
 	public ReservationController(ReservationService reservationService) {
@@ -37,6 +43,7 @@ public class ReservationController {
 	public ResponseEntity<Reservation> addReservation(@RequestBody Reservation reservation){
 		try {
 		Reservation newReservation = reservationService.addReservation(reservation);
+		template.convertAndSend(MessagingConfig.EXCHANGE, MessagingConfig.ROUTING_KEY, newReservation);
 		return new ResponseEntity<>(newReservation, HttpStatus.CREATED);
 		}
 		catch (Exception e) {
