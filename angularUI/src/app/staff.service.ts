@@ -6,7 +6,8 @@ import { Employee } from './employee';
   providedIn: 'root'
 })
 export class StaffService {
-
+  public getEmployeesUrl = "http://localhost:8762/staff/staff/all";
+  public addEmployeeUrl = "http://localhost:8762/staff/staff/add";
   private apiServerUrl = "http://localhost:8762/staff";
   constructor(private http: HttpClient) { }
 

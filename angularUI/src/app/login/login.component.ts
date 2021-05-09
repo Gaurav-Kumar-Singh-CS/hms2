@@ -9,24 +9,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  loginUserData:any = {}
+  alert: boolean=false
+  registerUserData:any = {
+    username: null,
+    email: null,
+    password: null,
+    roles: null
+  }
   constructor(private _auth: AuthService,
               private _router: Router) { }
 
   ngOnInit(): void {
   }
   
-  loginUser() {
-    this._auth.loginUser(this.loginUserData)
+  registerUser() {
+    this.registerUserData.roles = this.registerUserData.roles.split()
+    const { username, email, password, roles } = this.registerUserData;
+    this._auth.registerUser(this.registerUserData)
       .subscribe(
         res => {
-          console.log(res),
-          localStorage.setItem('token', res.accessToken)
-          this._router.navigate(['/home'])
+          console.log(res)
+          this._router.navigate(['/login'])
         },
         err => console.log(err)
       )
+      this.alert = true;
   }
 
+  closeAlert(){
+    this.alert = false
+  }
 }
