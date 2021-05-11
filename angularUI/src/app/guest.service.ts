@@ -7,6 +7,9 @@ import { Guest } from './guest';
   providedIn: 'root'
 })
 export class GuestService {
+  
+  public getGuestsUrl = "http://localhost:8762/guest/guest/all";
+  public addGuestUrl = "http://localhost:8762/guest/guest/add";
 
   private baseURL = "http://localhost:8762/guest";
 

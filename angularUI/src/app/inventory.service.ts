@@ -7,6 +7,10 @@ import { Room } from './room';
   providedIn: 'root'
 })
 export class InventoryService {
+
+  
+  public getRoomsUrl = "http://localhost:8762/room/room/all";
+  public addRoomUrl = "http://localhost:8762/room/room/add";
   private apiServerUrl = "http://localhost:8762/room";
   constructor(private http: HttpClient) { }
 

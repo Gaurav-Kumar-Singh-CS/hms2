@@ -8,6 +8,9 @@ import { Reservation } from './reservation';
 })
 export class ReservationService {
 
+  
+  public getReservationsUrl = "http://localhost:8762/reservation/reservation/all";
+  public addReservationUrl = "http://localhost:8762/reservation/reservation/add";
   private apiServerUrl = "http://localhost:8762/reservation";
   constructor(private http: HttpClient) { }
 
