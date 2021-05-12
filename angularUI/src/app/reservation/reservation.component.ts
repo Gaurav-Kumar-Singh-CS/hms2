@@ -11,6 +11,7 @@ import { ReservationService } from '../reservation.service';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
+  alert: boolean=false
   public reservations: Reservation[];
 
   public editReservation: Reservation;
@@ -48,7 +49,7 @@ export class ReservationComponent implements OnInit {
         addForm.reset();
       }
     );
-
+this.alert = true
   }
 
   public onUpdateReservation(reservation: Reservation): void{
@@ -61,7 +62,7 @@ export class ReservationComponent implements OnInit {
         alert(error.message);
       }
     );
-
+this.alert=true
   }
 
 
@@ -75,7 +76,7 @@ export class ReservationComponent implements OnInit {
         alert(error.message);
       }
     );
-
+this.alert = true;
   }
 
   public searchReservations(key: String): void{
@@ -116,5 +117,8 @@ export class ReservationComponent implements OnInit {
     button.click();
 
 
+  }
+  closeAlert(){
+    this.alert = false
   }
 }

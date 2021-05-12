@@ -11,7 +11,7 @@ import { Room } from '../room';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-
+alert: boolean=false;
   public rooms: Room[];
 
   public editRoom: Room;
@@ -48,7 +48,7 @@ export class InventoryComponent implements OnInit {
         addForm.reset();
       }
     );
-
+    this.alert = true;
   }
 
   public onUpdateRoom(room: Room): void{
@@ -61,7 +61,7 @@ export class InventoryComponent implements OnInit {
         alert(error.message);
       }
     );
-
+    this.alert = true;
   }
 
 
@@ -85,6 +85,10 @@ export class InventoryComponent implements OnInit {
     button.click();
 
 
+  }
+
+  closeAlert(){
+    this.alert = false
   }
 
 }

@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./create-guest.component.css']
 })
 export class CreateGuestComponent implements OnInit {
-
+alert: boolean=false;
   guest: Guest
   constructor(private guestService: GuestService,
     private router: Router) { }
@@ -24,6 +24,7 @@ export class CreateGuestComponent implements OnInit {
       this.goToGuestList();
     },
     error => console.log(error));
+    this.alert = true;
   }
 
   goToGuestList(){
@@ -33,5 +34,10 @@ export class CreateGuestComponent implements OnInit {
   onSubmit(addForm: NgForm){
     console.log(addForm.value);
     this.saveGuest(addForm.value);
+    this.alert = true;
+  }
+
+  closeAlert(){
+    this.alert = false
   }
 }

@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateGuestComponent implements OnInit {
 
+  alert:boolean = false
   id: string;
   guest: Guest
   constructor(private guestService: GuestService,
@@ -30,9 +31,13 @@ export class UpdateGuestComponent implements OnInit {
       this.goToGuestList();
     }
     , error => console.log(error));
+    this.alert=true
   }
 
   goToGuestList(){
     this.router.navigate(['/guest/guests']);
+  }
+  closeAlert(){
+    this.alert = false
   }
 }

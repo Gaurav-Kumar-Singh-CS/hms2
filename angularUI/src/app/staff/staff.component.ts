@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./staff.component.css']
 })
 export class StaffComponent implements OnInit{
+  alert:boolean=false
   public employees: Employee[];
 
   public editEmployee: Employee;
@@ -47,7 +48,7 @@ export class StaffComponent implements OnInit{
         addForm.reset();
       }
     );
-
+this.alert=true
   }
 
   public onUpdateEmployee(employee: Employee): void{
@@ -60,7 +61,7 @@ export class StaffComponent implements OnInit{
         alert(error.message);
       }
     );
-
+this.alert = true
   }
 
 
@@ -74,7 +75,7 @@ export class StaffComponent implements OnInit{
         alert(error.message);
       }
     );
-
+this.alert = true
   }
 
   public searchEmployees(key: String): void{
@@ -118,6 +119,9 @@ export class StaffComponent implements OnInit{
     button.click();
 
 
+  }
+  closeAlert(){
+    this.alert = false
   }
 }
 
