@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from 'protractor';
 
 import { ReservationComponent } from './reservation.component';
 
@@ -22,4 +23,5 @@ describe('ReservationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
