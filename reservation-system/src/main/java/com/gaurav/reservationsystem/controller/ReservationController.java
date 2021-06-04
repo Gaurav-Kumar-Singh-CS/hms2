@@ -1,5 +1,5 @@
 package com.gaurav.reservationsystem.controller;
-
+				
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,28 @@ public class ReservationController {
 		this.reservationService = reservationService;
 	}
 	
-	
+/*	
+	@Autowired
+	private RestTemplate restTemplate;
+				
+	@Autowired
+	private WebClient.Builder webClientBuilder;
+									
+	@RequestMapping("/{userId}")
+		public List<GuestItem> getGuest(@PathVariable("userId") String userId){
+		Guest guests = restTemplate.getForObject("http://guest-management/guest/"+userId, Guest.class);
+				
+		return guests.getGuest().stream().map(guest ->{
+			Guest guest1 = restTemplate.getForObject("http://guest-management/guests/" + guest.getGuest(), Guest.class);
+			
+			return new GuestItem(guest.getName(),"full time",guest.getName());
+			})
+		.collect(Collectors.toList());
+		
+	}
+*/
+
+
 	@GetMapping("/all")
 	public ResponseEntity<List<Reservation>> getAllReservations(){
 		try {

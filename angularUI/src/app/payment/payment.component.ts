@@ -18,7 +18,7 @@ export class PaymentComponent implements OnInit {
 
   options = {
     "key": "rzp_test_7HdkaZ1xFGPomB", 
-    "amount": "50000",
+    "amount": "8400000",
     "currency": "INR",
     "name": "Acme Corp",
     "description": "Test Transaction",
